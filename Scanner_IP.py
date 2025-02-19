@@ -5,13 +5,13 @@ import concurrent.futures
 def hacer_ping(ip):
     response = os.system(f"ping -c 1 {ip} > /dev/null 2>&1")
     if response == 0:
-        print(f"{ip} está activa")
+        print(f"{ip} is active")
 
 def main():
-    print("Introduce la IP de red: ")
+    print("Enter the network IP: ")
     ip_red = input()
 
-    print("Introduce la máscara en formato largo: ")
+    print("Enter the mask in long format: ")
     mask = input()
 
     try:
@@ -21,7 +21,7 @@ def main():
             for future in concurrent.futures.as_completed(futures):
                 pass
     except ValueError as e:
-        print(f"Error en la red/máscara: {e}")
+        print(f"Network/mask error: {e}")
 
 if __name__ == "__main__":
     main()
